@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Peludo - Punto de Venta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/punto_venta.css">
+    
+</head>
+<!--Snippet-->
+<script>
+(function (m, a, z, e) {
+  var s, t, u, v;
+  try {
+    t = m.sessionStorage.getItem('maze-us');
+  } catch (err) {}
+
+  if (!t) {
+    t = new Date().getTime();
+    try {
+      m.sessionStorage.setItem('maze-us', t);
+    } catch (err) {}
+  }
+
+  u = document.currentScript || (function () {
+    var w = document.getElementsByTagName('script');
+    return w[w.length - 1];
+  })();
+  v = u && u.nonce;
+
+  s = a.createElement('script');
+  s.src = z + '?apiKey=' + e;
+  s.async = true;
+  if (v) s.setAttribute('nonce', v);
+  a.getElementsByTagName('head')[0].appendChild(s);
+  m.mazeUniversalSnippetApiKey = e;
+})(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '34de8eaf-01af-4e22-a680-19cfb5cc7733');
+</script>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-paw"></i>
+            <span>Mundo Peludo</span>
+        </div>
+
+        <a href="inicio_recepcionsita.html" class="nav-btn">Agenda</a>
+        <a href="" class="nav-btn">Ventas</a>
+    </aside>
+
+    <main class="main-content">
+        
+        <h1 class="page-title">Punto de venta</h1>
+
+        <div class="pos-container">
+            
+            <div class="products-section">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar por codigo de barras">
+                </div>
+
+                <div class="product-row">
+                    <div class="product-info">
+                        <span class="product-name">Putina para gatos DonKat 2Kg</span>
+                        <span class="product-price">15.000</span>
+                    </div>
+                    <div class="qty-controls">
+                        <i class="fa-solid fa-circle-minus qty-btn minus"></i>
+                        <i class="fa-solid fa-circle-plus qty-btn plus"></i>
+                    </div>
+                </div>
+
+                <div class="product-row">
+                    <div class="product-info">
+                        <span class="product-name">Rascador de carton</span>
+                        <span class="product-price">12.000</span>
+                    </div>
+                    <div class="qty-controls">
+                        <i class="fa-solid fa-circle-minus qty-btn minus"></i>
+                        <i class="fa-solid fa-circle-plus qty-btn plus"></i>
+                    </div>
+                </div>
+
+                <div class="product-row">
+                    <div class="product-info">
+                        <span class="product-name">Juguete para gato, caña de pescar</span>
+                        <span class="product-price">18.000</span>
+                    </div>
+                    <div class="qty-controls">
+                        <i class="fa-solid fa-circle-minus qty-btn minus"></i>
+                        <i class="fa-solid fa-circle-plus qty-btn plus"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="summary-panel">
+                <h2>Resumen</h2>
+
+                <div class="summary-header">
+                    <span class="col-prod">Producto</span>
+                    <span class="col-cant">Cant.</span>
+                    <span class="col-total">Total</span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="col-prod">Putina para gatos<br>DonKat 2Kg</span>
+                    <span class="col-cant">1</span>
+                    <span class="col-total">15.000</span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="col-prod">Rascador de<br>carton</span>
+                    <span class="col-cant">1</span>
+                    <span class="col-total">12.000</span>
+                </div>
+
+                <div class="summary-item">
+                    <span class="col-prod">Juguete para gato<br>caña de pescar</span>
+                    <span class="col-cant">1</span>
+                    <span class="col-total">18.000</span>
+                </div>
+
+                <div class="totals-section">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span>45.000</span>
+                    </div>
+                    <div class="total-row">
+                        <span>IVA (19%)</span>
+                        <span>8.550</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total</span>
+                        <span>53.550</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-action btn-cancel" id="btn-cancel-sale">Cancelar</button>
+                    <button class="btn-action btn-charge" id="btn-charge">Cobrar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+   <div class="modal-overlay" id="receipt-modal">
+        <div class="modal-content">
+            <div class="icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="modal-message"><h2>Generando recibo de pago</h2></div>
+            <button class="modal-btn-accept" id="btn-receipt-accept">Aceptar</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="warning-modal">
+        <div class="modal-content">
+            <div class="icon-warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="modal-message">
+                <h2>¿Esta seguro de cancelar la venta?</h2>
+                <p>Esta accion no se puede deshacer</p>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn-cancel" id="btn-warning-cancel">Cancelar</button>
+                <button class="modal-btn-accept" id="btn-warning-accept">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="cancel-success-modal">
+        <div class="modal-content">
+            <div class="icon-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
+            <div class="modal-message"><h2>Venta cancelada correctamente</h2></div>
+            <button class="modal-btn-accept" id="btn-cancel-success-accept">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="js/punto_venta.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesión - Mundo Peludo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/inicio_sesion.css">
+</head>
+<!--Snippet-->
+<script>
+(function (m, a, z, e) {
+  var s, t, u, v;
+  try {
+    t = m.sessionStorage.getItem('maze-us');
+  } catch (err) {}
+
+  if (!t) {
+    t = new Date().getTime();
+    try {
+      m.sessionStorage.setItem('maze-us', t);
+    } catch (err) {}
+  }
+
+  u = document.currentScript || (function () {
+    var w = document.getElementsByTagName('script');
+    return w[w.length - 1];
+  })();
+  v = u && u.nonce;
+
+  s = a.createElement('script');
+  s.src = z + '?apiKey=' + e;
+  s.async = true;
+  if (v) s.setAttribute('nonce', v);
+  a.getElementsByTagName('head')[0].appendChild(s);
+  m.mazeUniversalSnippetApiKey = e;
+})(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '34de8eaf-01af-4e22-a680-19cfb5cc7733');
+</script>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-paw"></i>
+            <a href="index.html"><h2>Mundo Peludo</h2></a>
+        </div>
+    </header>
+
+    <h1 class="titulo-principal">Inicia sesión</h1>
+
+    <div class="login-card">
+        <input type="text" class="input" placeholder="Nombre de usuario">
+        <input type="password" class="input" placeholder="Contraseña">
+    </div>
+
+    <div class="opciones-login">
+        <label class="recordar">
+            <input type="checkbox">
+            Recordarme
+        </label>
+
+        <span class="no-cuenta">Aún no tienes una cuenta?</span>
+        <a href="registro.html" class="registro-link">Regístrate</a>
+    </div>
+
+    <h2 class="subtitulo-rol">Iniciar sesión como:</h2>
+
+    <div class="roles">
+        <button class="btn-rol">Usuario</button>
+        <button class="btn-rol">Doctor</button>
+        <a href="inicio_recepcionsita.html"><button class="btn-rol">Recepcionista</button></a>
+        <button class="btn-rol">Administrador</button>
+    </div>
+
+</body>
+</html>
